@@ -28,6 +28,8 @@ const ExpenseForm = () => {
             date: new Date(date)
         }
 
+        // new data entering just for git commit
+
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');
