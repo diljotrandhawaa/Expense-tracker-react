@@ -27,9 +27,14 @@ function App() {
     },
   ];
 
+  const enteredDataRender = (enteredExpenseData) => {
+    expenses.push(enteredExpenseData);
+    console.log(expenses);
+  }
+  
   return (
     <div className="App">
-      <NewExpense />
+      <NewExpense onDataEnteredHandler={enteredDataRender} />
       <Expenses items={expenses}></Expenses>
     </div>
   );

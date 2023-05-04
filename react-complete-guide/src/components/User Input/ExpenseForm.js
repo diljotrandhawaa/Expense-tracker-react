@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ExpenseForm.css';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
 
     const [title, setEnteredTitle] = useState('');
     const [amount, setEnteredAmount] = useState('');
@@ -28,13 +28,12 @@ const ExpenseForm = () => {
             date: new Date(date)
         }
 
-        // new data entering just for git commit
+        props.onDataEntered(expenseData);
 
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');
 
-        console.log(expenseData);
     };
 
     return (
