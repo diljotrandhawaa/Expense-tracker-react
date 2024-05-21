@@ -7,6 +7,16 @@ const ExpenseForm = (props) => {
     const [amount, setEnteredAmount] = useState('');
     const [date, setEnteredDate] = useState('');
 
+    const getCurrentDate = () => {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+        const day = String(today.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+      };
+    
+    const maxDate = getCurrentDate();
+
     const titleChangeHandler = (e) => {
         setEnteredTitle(e.target.value);
     };
@@ -49,7 +59,7 @@ const ExpenseForm = (props) => {
             </div>
             <div className="new-expense__control">
                 <label>Date</label>
-                <input type='date' value={date} min='2019-01-01' max='2023-05-07' onChange={dateChangeHandler} />
+                <input type='date' value={date} min='2019-01-01' max={maxDate} onChange={dateChangeHandler} />
             </div>
         </div>
         <div className='new-expense__actions'>
